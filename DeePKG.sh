@@ -70,6 +70,8 @@ check /bin/
 echo "[0] To EXIT :"
 echo 
 
+INDEX="->"
+
 
 while true ; do
 
