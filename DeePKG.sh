@@ -77,63 +77,63 @@ echo
 read -p "Enter directory (e.g. usr , lib ..)  : " option
 
 case $option in
-	usr|/usr/)
+	usr|/usr/|/usr)
 		check /usr/
 		if [[ "$?" -eq 0 ]] ; then
 			echo -e ${YELLOW}
 			dpkg -L $BINARY | grep -e '/usr/' && echo -e ${WHITE}
 		fi
 		;;
-	lib|/lib/)
+	lib|/lib/|/lib)
 		check /lib/
 		if [[ "$?" -eq 0 ]] ; then
 			echo -e ${YELLOW}
 			dpkg -L $BINARY | grep -e '/lib/' && echo -e ${WHITE}
 		fi
 		;;
-	cache|/cache/)
+	cache|/cache/|/cache)
 		check /cache/
 		if [[ "$?" -eq 0 ]] ; then
 			echo -e ${YELLOW}
 			dpkg -L $BINARY | grep -e '/cache/' && echo -e ${WHITE}
 		fi
 		;;
-	share|/share/)
+	share|/share/|/share)
 		check /share/
 		if [[ "$?" -eq 0 ]] ; then
 			echo -e ${YELLOW}
 			dpkg -L $BINARY | grep -e '/share/' && echo -e ${WHITE}
 		fi
 		;;
-	doc|/doc/)
+	doc|/doc/|/doc)
 		check /doc/
 		if [[ "$?" -eq 0 ]] ; then
 			echo -e ${YELLOW}
 			dpkg -L $BINARY | grep -e '/doc/' && echo -e ${WHITE}
 		fi
 		;;
-	man|/man/)
+	man|/man/|/man)
 		check /man/
 		if [[ "$?" -eq 0 ]] ; then
 			echo -e ${YELLOW}
 			dpkg -L $BINARY | grep -e '/man/' && echo -e ${WHITE}
 		fi
 		;;
-	var|/var/)
+	var|/var/|/var)
 		check /var/
 		if [[ "$?" -eq 0 ]] ; then
 			echo -e ${YELLOW}
 			dpkg -L $BINARY | grep -e '/var/' && echo -e ${WHITE}
 		fi
 		;;
-	etc|/etc/)
+	etc|/etc/|/etc)
 		check /etc/
 		if [[ "$?" -eq 0 ]] ; then
 			echo -e ${YELLOW}
 			dpkg -L $BINARY | grep -e '/etc/' && echo -e ${WHITE}
 		fi
 		;;
-	bin|/bin/)
+	bin|/bin/|/bin)
 		check /bin/
 		if [[ "$?" -eq 0 ]] ; then
 			echo -e ${YELLOW}
