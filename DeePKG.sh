@@ -74,7 +74,8 @@ echo
 while true ; do
 
 echo
-read -p "Enter directory (e.g. usr , lib ..)  : " option
+echo "Enter directory (e.g. usr / lib / share / cache / doc / man / var / etc / bin )"
+read -p "Enter dir. : " option
 
 case $option in
 	usr|/usr/|/usr)
@@ -140,7 +141,7 @@ case $option in
 			dpkg -L $BINARY | grep -e '/bin/' && echo -e ${WHITE}
 		fi
 		;;
-	[0]|exit|EXIT|Exit)
+	[0]|exit|EXIT|Exit|q)
 		echo -e "${GREEN}Thank You!!${WHITE}"
 		exit 0
 		;;
