@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash 
 
 BINARY=$1
 INDEX=1
@@ -16,6 +16,16 @@ CYAN='\e[36m'
 GRAY='\e[37m'
 WHITE='\e[0;37m'
 
+USR=$YELLOW"/usr/"$WHITE
+LIB=$YELLOW"/lib/"$WHITE
+SHARE=$YELLOW"/share/"$WHITE
+CACHE=$YELLOW"/cache/"$WHITE
+DOC=$YELLOW"/doc/"$WHITE
+VAR=$YELLOW"/var/"$WHITE
+MAN=$YELLOW"/man/"$WHITE
+ETC=$YELLOW"/etc/"$WHITE
+BIN=$YELLOW"/bin/"$WHITE
+
 function usage()
 {
 	echo -e "${RED}Usage: ${YELLOW}$0 <package-name>"
@@ -29,6 +39,44 @@ function existence()
 	if [[ "$?" -gt 0 ]];then
 		echo -e "${RED}$1 ${WHITE}files are not available in dpkg db for ${RED}$BINARY${WHITE} .."
 		return 1
+	fi
+	
+	DIR="$1"
+
+	if [[ $DIR == "/usr/" ]] ; then
+		USR=$GREEN"/usr/"$WHITE
+	fi
+
+	if [[ $DIR == "/lib/" ]] ; then
+		LIB=$GREEN"/lib/"$WHITE
+	fi
+
+	if [[ $DIR == "/share/" ]] ; then
+		SHARE=$GREEN"/share/"$WHITE
+	fi
+
+	if [[ $DIR == "/cache/" ]] ; then
+		CACHE=$GREEN"/cache/"$WHITE
+	fi
+
+	if [[ $DIR == "/doc/" ]] ; then
+		DOC=$GREEN"/doc/"$WHITE
+	fi
+
+	if [[ $DIR == "/man/" ]] ; then
+		MAN=$GREEN"/man/"$WHITE
+	fi
+
+	if [[ $DIR == "/var/" ]] ; then
+		VAR=$GREEN"/var/"$WHITE
+	fi
+
+	if [[ $DIR == "/etc/" ]] ; then
+		ETC=$GREEN"/etc/"$WHITE
+	fi
+
+	if [[ $DIR == "/bin/" ]] ; then
+		BIN=$GREEN"/bin/"$WHITE
 	fi
 
 	return 0
@@ -74,7 +122,7 @@ echo
 while true ; do
 
 echo
-echo "Enter directory (e.g. usr / lib / share / cache / doc / man / var / etc / bin )"
+echo -e "Enter directory (e.g. $USR / $LIB / $SHARE / $CACHE / $DOC / $MAN / $VAR / $ETC / $BIN )"
 read -p "Enter dir. : " option
 
 case $option in
